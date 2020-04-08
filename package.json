@@ -1,0 +1,30 @@
+{
+  "name": "anna-remax-ui-examples",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Examples for Anna Remax UI",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Anna",
+  "license": "MIT",
+  "scripts": {
+    "dev": "remax build -w -t",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "NODE_ENV=production remax build -t"
+  },
+  "dependencies": {
+    "@types/classnames": "^2.2.10",
+    "@types/react": "^16.9.1",
+    "anna-remax-ui": "^1.3.6",
+    "classnames": "^2.2.6",
+    "node-sass": "^4.13.1",
+    "react": "^16.8.6",
+    "remax": "^1.19.6",
+    "remax-cli": "^1.19.6",
+    "rimraf": "^2.6.3"
+  },
+  "devDependencies": {
+    "chokidar": "^2.1.8"
+  }
+}

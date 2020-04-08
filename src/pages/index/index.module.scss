@@ -1,0 +1,14 @@
+.app {
+  padding: 30rpx;
+  .navBlock{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 24rpx;
+    margin-bottom: 24rpx;
+    height: 88rpx;
+    border-radius: 12rpx;
+    color: #000;
+    background-color: #FDFFFD;
+  }
+}

@@ -1,0 +1,22 @@
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, 25%);
+  row-gap: 20rpx;
+  column-gap: 20rpx;
+  .item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 170rpx;
+    border-radius: 10rpx;
+    background-color: #e8e8e8;
+    overflow: hidden;
+  }
+}
+
+
+// .container {
+//   display: grid;
+//   grid-template-columns: repeat(3,calc(100wh / 3));
+//   grid-template-rows:calc(100wh / 3);
+// }
