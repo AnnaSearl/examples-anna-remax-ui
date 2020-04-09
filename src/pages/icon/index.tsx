@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import { Icon } from 'anna-remax-ui';
+import Icon from 'anna-remax-ui/esm/icon';
 import styles from './index.module.scss';
 
 export default () => {

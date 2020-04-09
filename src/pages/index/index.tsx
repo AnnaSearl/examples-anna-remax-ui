@@ -15,11 +15,23 @@ export default () => {
       <Navigator className={styles.navBlock} url="/pages/icon/index">
         Icon
       </Navigator>
+      <Navigator className={styles.navBlock} url="/pages/card/index">
+        Card
+      </Navigator>
       <Navigator className={styles.navBlock} url="/pages/checkbox/index">
         Checkbox
       </Navigator>
-      <Navigator className={styles.navBlock} url="/pages/image_upload/index">
+      <Navigator className={styles.navBlock} url="/pages/image-upload/index">
         ImageUpload
+      </Navigator>
+      <Navigator className={styles.navBlock} url="/pages/popup/index">
+        Popup
+      </Navigator>
+      <Navigator className={styles.navBlock} url="/pages/search-bar/index">
+        SearchBar
+      </Navigator>
+      <Navigator className={styles.navBlock} url="/pages/tabs/index">
+        Tabs
       </Navigator>
     </View>
   );

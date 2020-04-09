@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View } from 'remax/one';
-import { Checkbox, Textarea } from 'anna-remax-ui';
+import Checkbox from 'anna-remax-ui/esm/checkbox';
+import Textarea from 'anna-remax-ui/esm/textarea';
 import Block from '@/common/block';
 import styles from './index.module.scss';
 

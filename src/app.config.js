@@ -4,7 +4,11 @@ const pages = [
   'pages/cell/index',
   'pages/icon/index',
   'pages/checkbox/index',
-  'pages/image_upload/index',
+  'pages/image-upload/index',
+  'pages/card/index',
+  'pages/popup/index',
+  'pages/search-bar/index',
+  'pages/tabs/index',
 ];
 const title = 'Anna Remax UI';
 const backgroundColor = '#FF9999';

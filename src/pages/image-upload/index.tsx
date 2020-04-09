@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import { ImageUpload } from 'anna-remax-ui';
+import ImageUpload from 'anna-remax-ui/esm/image-upload';
 import Block from '@/common/block';
 import styles from './index.module.scss';
 

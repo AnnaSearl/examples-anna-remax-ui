@@ -1,0 +1,36 @@
+.app {
+  padding: 30rpx 0;
+  .extra{
+    color: #1890FF;
+  }
+  .group{
+    margin-bottom: 30rpx;
+    .title{
+      height: 88rpx;
+      line-height: 86rpx;
+      color: #FDFFFD;
+      font-size: 32rpx;
+      font-weight: 500;
+      padding-left: 24rpx;
+    }
+    .subTitle{
+      color: #EEE;
+      font-size: 28rpx;
+      padding-left: 24rpx;
+      padding-bottom: 20rpx;
+    }
+    .content{
+      // background-color: #FDFFFD;
+      margin: 0 24rpx 30rpx 24rpx;
+      &:nth-last-child(1){
+        margin-bottom: 0;
+      }
+    }
+  }
+  .tabContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 240rpx;
+  }
+}
