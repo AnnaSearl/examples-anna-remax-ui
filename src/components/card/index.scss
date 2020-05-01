@@ -1,0 +1,28 @@
+@import '../style/index.scss';
+
+$card-prefix-cls: #{$anna-prefix}-card;
+
+.#{$card-prefix-cls} {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+  background-color: $view-bg-color;
+  font-size: 28rpx;
+  color: $font-color;
+  &-header{
+    padding: 24rpx 20rpx;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    &-title{
+      font-size: 32rpx;
+    }
+    &-extra{
+      font-size: 28rpx;
+    }
+  }
+  &-content{
+    padding: 0 20rpx 30rpx;
+  }
+}

@@ -1,0 +1,16 @@
+.app {
+  padding: 30rpx 0;
+  .container{
+    padding: 20rpx 24rpx;
+    background-color: #FDFFFD;
+    display: flex;
+  }
+  .item{
+    padding-bottom: 30rpx;
+    color: #666;
+    font-size: 28rpx;
+    &:nth-last-child(1){
+      padding-bottom: 0;
+    }
+  }
+}

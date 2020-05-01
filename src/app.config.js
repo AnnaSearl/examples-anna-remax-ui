@@ -9,8 +9,19 @@ const pages = [
   'pages/popup/index',
   'pages/search-bar/index',
   'pages/tabs/index',
+  'pages/input/index',
+  'pages/picker/index',
+  'pages/radio/index',
+  'pages/filter/index',
+  'pages/selector/index',
+  'pages/cascade/index',
+  'pages/result/index',
+  'pages/switch/index',
+  'pages/tag/index',
+  'pages/rate/index',
+  'pages/steps/index',
 ];
-const title = 'Anna Remax UI';
+const title = '';
 const backgroundColor = '#FF9999';
 
 exports.wechat = {

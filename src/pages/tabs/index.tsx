@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import Tabs from 'anna-remax-ui/esm/tabs';
-import Card from 'anna-remax-ui/esm/card';
+import { Tabs, Card } from '@/components';
 import styles from './index.module.scss';
 
 const { TabContent } = Tabs;

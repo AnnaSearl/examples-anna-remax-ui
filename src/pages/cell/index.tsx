@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import Cell from 'anna-remax-ui/esm/cell';
+import { Cell } from '@/components';
 import styles from './index.module.scss';
 
 export default () => {
@@ -35,6 +35,12 @@ export default () => {
         <View className={styles.content}>
           <Cell label="Cell">content</Cell>
           <Cell label="Cell" border={false}>content</Cell>
+        </View>
+      </View>
+      <View className={styles.group}>
+        <View className={styles.title}>With Description</View>
+        <View className={styles.content}>
+          <Cell label="Cell" border={false} description="Here is the description">content</Cell>
         </View>
       </View>
     </View>

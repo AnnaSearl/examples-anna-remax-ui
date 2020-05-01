@@ -1,0 +1,13 @@
+@import '../style/index.scss';
+
+$filter-prefix-cls: #{$anna-prefix}-filter;
+
+.#{$filter-prefix-cls} {
+  position: relative;
+  z-index: 999;
+  &-items{
+    position: relative;
+    display: flex;
+    z-index: 1;
+  }
+}

@@ -1,0 +1,42 @@
+.app {
+  padding: 30rpx 0;
+  .container{
+    background-color: #FDFFFD;
+  }
+  .custom{
+    .tags{
+      padding: 30px 24px;
+      .tag{
+        margin-bottom: 30rpx;
+        .title{
+          font-size: 26rpx;
+          margin-bottom: 10rpx;
+          color: #999;
+        }
+      }
+    }
+    .action{
+      height: 88rpx;
+      display: flex;
+      background-color: rgba(0,0,0,0.3);
+      .btn{
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 32rpx;
+        font-weight: 400;
+      }
+      .reset{
+        background-color: #FFFFFF;
+        border-top: 1rpx solid #e8e8e8;
+        border-bottom-left-radius: 14rpx;
+      }
+      .complete{
+        background-color: #1890ff;
+        color: #FFFFFF;
+        border-bottom-right-radius: 14rpx;
+      }
+    }
+  }
+}

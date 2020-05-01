@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import Popup from 'anna-remax-ui/esm/popup';
-import Button from 'anna-remax-ui/esm/button'
+import { Popup, Button } from '@/components';
 import styles from './index.module.scss';
 
 export default () => {

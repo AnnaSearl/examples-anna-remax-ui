@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import Card from 'anna-remax-ui/esm/card';
+import { Card } from '@/components';
 import styles from './index.module.scss';
 
 export default () => {
@@ -19,7 +19,7 @@ export default () => {
         </View>
       </View>
       <View className={styles.group}>
-        <View className={styles.title}>With extra</View>
+        <View className={styles.title}>With Extra</View>
         <View className={styles.content}>
           <Card 
             title="title" 

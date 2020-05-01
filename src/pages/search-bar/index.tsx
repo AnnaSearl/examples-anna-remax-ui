@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import SearchBar from 'anna-remax-ui/esm/search-bar';
+import { SearchBar } from '@/components';
 import styles from './index.module.scss';
 
 export default () => {

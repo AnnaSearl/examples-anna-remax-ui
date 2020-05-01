@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/one';
-import Button from 'anna-remax-ui/esm/button';
+import { Button } from '@/components';
 import Block from '../../common/block';
 import styles from './index.module.scss';
 
