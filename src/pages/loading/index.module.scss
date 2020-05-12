@@ -1,0 +1,36 @@
+.app {
+  padding: 30rpx 0;
+  .container{
+    padding: 20rpx 24rpx;
+    background-color: #FDFFFD;
+    display: flex;
+  }
+  .grid{
+    box-sizing: border-box;
+    padding-left: 10rpx;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, calc(33.3333% - 10rpx));
+    grid-template-rows: 200rpx;
+    grid-auto-rows: 200rpx;
+    row-gap: 10rpx;
+    column-gap: 10rpx;
+    .item{
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10rpx;
+      background-color: #FDFFFD;
+      overflow: hidden;
+      .main{
+        height: 60rpx;
+      }
+      .name{
+        font-size: 24rpx;
+        margin-top: 14rpx;
+        color: #000;
+      }
+    }
+  }
+}

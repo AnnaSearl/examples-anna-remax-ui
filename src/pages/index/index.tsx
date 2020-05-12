@@ -75,6 +75,9 @@ export default () => {
       <Navigator className={styles.navBlock} url="/pages/filter/index">
         Filter
       </Navigator>
+      <Navigator className={styles.navBlock} url="/pages/loading/index">
+        Loading
+      </Navigator>
       <Navigator className={styles.navBlock} url="/pages/popup/index">
         Popup
       </Navigator>

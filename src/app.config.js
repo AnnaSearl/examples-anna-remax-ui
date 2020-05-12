@@ -20,6 +20,7 @@ const pages = [
   'pages/tag/index',
   'pages/rate/index',
   'pages/steps/index',
+  'pages/loading/index',
 ];
 const title = '';
 const backgroundColor = '#FF9999';
