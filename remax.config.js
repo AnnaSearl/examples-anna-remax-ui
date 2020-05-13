@@ -1,4 +1,5 @@
-const merge = require('webpack-merge')
+const merge = require('webpack-merge');
+const sass = require('@remax/plugin-sass');
 
 // remax.config.js 默认配置
 module.exports = {
@@ -19,19 +20,6 @@ module.exports = {
   // 修改 webpack 的配置
   configWebpack: config => {
     // config 对象为 webpack chain 生成 的 Config，可以直接通过 webpack chain 的方式修改配置 https://github.com/neutrinojs/webpack-chain
-    // console.log(config);
-    // config.config.module.rules('css').use('mini-css-extract-loader').tap(options => // tap修改参数的方法
-    //   merge(options, { //merge方法是保证我们不会覆盖掉原有的其他配置
-    //     publicPath: (resourcePath, context) => {
-    //       console.log('resourcePath-----------------------------------',resourcePath);
-    //       console.log('context-----------------------------------',context);
-    //       console.log('context-----------------------------------',context);
-    //       console.log('path.dirname(resourcePath)-----------------------------------',path.dirname(resourcePath));
-    //       console.log('end-----------------------------------',path.relative(path.dirname(resourcePath), context) + '/');
-    //       return path.relative(path.dirname(resourcePath), context) + '/';
-    //     },
-    //   })
-    // )
   },
   // 对某些页面开启性能优化，具体可以参考《性能优化选项》章节
   turboPages: [],
@@ -39,4 +27,5 @@ module.exports = {
   one: true,
   // 通过环境变量区分不同平台的输出目录
   output: 'dist/' + process.env.REMAX_PLATFORM,
+  plugins: [sass()],
 };
