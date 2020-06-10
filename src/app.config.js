@@ -33,10 +33,11 @@ exports.wechat = {
   }
 };
 
-exports.alipay = {
+exports.ali = {
   pages,
   window: {
     defaultTitle: title,
     titleBarColor: backgroundColor
   }
 };
+

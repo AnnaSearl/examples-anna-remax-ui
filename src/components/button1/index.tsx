@@ -1,14 +1,16 @@
+/** @format */
+
 import * as React from 'react';
-import { View, Text, Button } from 'remax/one';
+import { View, Text } from 'remax/one';
 import classNames from 'classnames';
-import { tuple, mergeStyle } from '../_util';
+import { tuple } from '../_util';
 import Loading from '../loading';
 import { getPrefixCls } from '../common';
-import './style/index.scss';
+import './index.scss';
 
 const prefixCls = getPrefixCls('button');
 
-const ButtonTypes = tuple('default', 'primary');
+const ButtonTypes = tuple('default', 'primary', 'simple');
 export type ButtonType = typeof ButtonTypes[number];
 
 export interface ButtonProps {
@@ -23,13 +25,10 @@ export interface ButtonProps {
   loading?: boolean;
   loadingText?: string;
   plain?: boolean;
-  hairline?: boolean;
-  color?: string;
-  onTap?: (e: any) => void;
-  [restProps: string]: any;
+  onTap?: () => void;
 }
 
-const AButton = (props: ButtonProps): React.ReactElement => {
+const Button = (props: ButtonProps): React.ReactElement => {
   const {
     type,
     size,
@@ -43,26 +42,20 @@ const AButton = (props: ButtonProps): React.ReactElement => {
     loading,
     loadingText,
     plain,
-    hairline,
-    color,
-    ...restProps
   } = props;
 
-  console.log('restProps',restProps);
-  
-
-  const handleTap = (e: any) => {
+  const handleClick = () => {
     if (disabled) {
       return;
     }
     if (loading) {
       return;
     }
-    onTap?.(e);
+    onTap?.();
   };
 
   return (
-    <Button
+    <View
       className={classNames({
         [prefixCls]: true,
         [`${prefixCls}-square`]: square,
@@ -71,25 +64,23 @@ const AButton = (props: ButtonProps): React.ReactElement => {
         [`${prefixCls}-superlarge`]: size === 'superlarge',
         [`${prefixCls}-primary`]: type === 'primary',
         [`${prefixCls}-plain`]: plain,
-        [`${prefixCls}-hairline`]: hairline,
         [`${prefixCls}-danger-default`]: danger,
         [`${prefixCls}-danger`]: type === 'primary' && danger,
         [`${prefixCls}-block`]: block,
         [`${prefixCls}-loading`]: loading,
         [`${prefixCls}-disabled`]: disabled,
       })}
-      onTap={handleTap}
-      style={mergeStyle(style, { color: color, borderColor: color })}
-      {...restProps}
+      onTap={handleClick}
+      style={style}
     >
       {loading ? (
         <View className={`${prefixCls}-loading-icon`}>
-          <Loading color="#FDFFFD" radius="36px" style={{ verticalAlign: 'text-top' }} />
+          <Loading color="#FDFFFD" radius="36rpx" style={{ verticalAlign: 'text-top' }} />
         </View>
       ) : null}
       <Text>{loading && loadingText ? loadingText : children}</Text>
-    </Button>
+    </View>
   );
 };
 
-export default AButton;
+export default Button;

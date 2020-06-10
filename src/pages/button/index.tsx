@@ -1,12 +1,54 @@
 import * as React from 'react';
 import { View } from 'remax/one';
+import { Button as WButton } from 'remax/wechat';
 import { Button } from '@/components';
 import Block from '../../common/block';
 import styles from './index.module.scss';
 
 export default () => {
+
+  const getPhoneNumber = (e: any) => {
+    console.log(e)
+  }
+
+  const hanldeTap = (e: any) => {
+    console.log('tap,', e)
+  }
+
   return (
     <View className={styles.app}>
+      <Block title="Type">
+        <View className={styles.group}>
+          <Button>default</Button>
+          <Button type="primary">primary</Button>
+        </View>
+      </Block>
+      <Block title="Plain">
+        <View className={styles.group}>
+          <Button plain>default</Button>
+          <Button type="primary" plain >primary</Button>
+        </View>
+      </Block>
+      <Block title="Hairline">
+        <View className={styles.group}>
+          <Button plain hairline>default</Button>
+          <Button plain hairline type="primary">primary</Button>
+          <Button 
+            color="#00CC99" 
+            plain 
+            hairline 
+            type="primary"
+            wechat-open-type="getUserInfo"
+            wechat-bindgetuserinfo={getPhoneNumber}
+            onTap={hanldeTap}
+          >#00CC99</Button>
+          {/* <WButton 
+            wechat-open-type="getUserInfo"
+            wechat-bindgetuserinfo={getPhoneNumber}
+            wechat-bindtap={hanldeTap}
+            >原生滚滚滚</WButton> */}
+        </View>
+      </Block>
       <Block title="Type">
         <View className={styles.group}>
           <Button>default</Button>

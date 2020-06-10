@@ -1,85 +1,65 @@
+/** @format */
+
 import * as React from 'react';
 import { useMemo } from 'react';
 import { View } from 'remax/one';
 import classNames from 'classnames';
 import { getPrefixCls } from '../common';
-import './style/index.scss';
+import './index.scss';
 
 const prefixCls = getPrefixCls('tabs');
 
 export interface TabTitleProps {
-  key?: string | number;
-  tab?: React.ReactNode;
+  key?: string;
+  title?: string;
 }
 
 export interface TabProps {
   type?: string;
-  activeKey?: string | number;
+  tabs?: TabTitleProps[];
+  activeTab?: string;
   fixed?: boolean;
   onTabClick?: (i: any) => void;
   headerContent?: React.ReactNode;
   children?: React.ReactNode;
   headerStyle?: React.CSSProperties;
   extra?: React.ReactNode;
-  titleWidth?: number;
-  titleSquare?: boolean;
+  tabTitleWidth?: number;
+  tabTitleSquare?: boolean;
 }
 
 export interface TabContentProps {
-  key?: string | number;
-  tab?: React.ReactNode;
-  active?: boolean;
+  tabId?: string;
+  activeTab?: string;
   children?: React.ReactNode;
 }
-
-const getTabContents = (children: React.ReactNode, activeKey?: string | number) => {
-  const tabContents: any[] = [];
-  const tabs: any[] = [];
-  React.Children.forEach(children, (node: any, index: number) => {
-    const newNode = node;
-    if (React.isValidElement(node)) {
-      return (
-        tabs.push({ key: newNode.key, tab: newNode.props.tab }) &&
-        tabContents.push(
-          <TabContent
-            key={newNode.key}
-            {...newNode.props}
-            active={activeKey === undefined ? index === 0 && newNode.key : activeKey === newNode.key}
-          />,
-        )
-      );
-    }
-  });
-  return [tabs, tabContents];
-};
 
 const Tabs = (props: TabProps): React.ReactElement => {
   const {
     type,
-    activeKey,
+    tabs = [],
+    activeTab,
     fixed,
     onTabClick,
     headerContent,
     children,
     headerStyle,
     extra,
-    titleWidth,
-    titleSquare,
+    tabTitleWidth = 140,
+    tabTitleSquare,
   } = props;
-
-  const [tabs, tabContents] = getTabContents(children, activeKey);
 
   const getTabIndex = () => {
     let tIndex = 0;
     tabs.forEach((i: any, index: number) => {
-      if (i.key === activeKey) {
+      if (i.key === activeTab) {
         tIndex = index;
       }
     });
     return tIndex;
   };
 
-  const curIndex = useMemo(() => getTabIndex(), [activeKey, tabs]);
+  const curIndex = useMemo(() => getTabIndex(), [activeTab, tabs]);
   const fixedStyle = useMemo(() => {
     return fixed
       ? ({
@@ -95,7 +75,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
   const handleTabClick = (item: any) => {
     onTabClick?.(item);
   };
-  
+
   return (
     <View className={prefixCls}>
       <View
@@ -110,7 +90,7 @@ const Tabs = (props: TabProps): React.ReactElement => {
             <View
               className={classNames({
                 [`${prefixCls}-header-titles-bg`]: true,
-                [`${prefixCls}-header-titles-bg-square`]: titleSquare,
+                [`${prefixCls}-header-titles-bg-square`]: tabTitleSquare,
               })}
             >
               <View className={`${prefixCls}-header-titles-bg-container`}>
@@ -118,17 +98,15 @@ const Tabs = (props: TabProps): React.ReactElement => {
                   <View
                     key={item.key}
                     className={`${prefixCls}-header-titles-bg-container-title`}
-                    style={
-                      {
-                        fontWeight: activeKey === item.key ? 500 : 400,
-                        width: titleWidth ? `${titleWidth}px` : null,
-                      } as React.CSSProperties
-                    }
+                    style={{
+                      fontWeight: activeTab === item.key ? 500 : 400,
+                      width: `${tabTitleWidth}rpx`,
+                    }}
                     onTap={() => {
                       handleTabClick(item);
                     }}
                   >
-                    {item.tab}
+                    {item.title}
                   </View>
                 ))}
                 <View
@@ -150,13 +128,13 @@ const Tabs = (props: TabProps): React.ReactElement => {
                 key={item.key}
                 className={classNames({
                   [`${prefixCls}-header-titles-plain-title`]: true,
-                  [`${prefixCls}-header-titles-plain-title-active`]: activeKey === item.key,
+                  [`${prefixCls}-header-titles-plain-title-active`]: activeTab === item.key,
                 })}
                 onTap={() => {
                   handleTabClick(item);
                 }}
               >
-                {item.tab}
+                {item.title}
               </View>
             ))}
           </View>
@@ -168,28 +146,28 @@ const Tabs = (props: TabProps): React.ReactElement => {
                 key={item.key}
                 className={classNames({
                   [`${prefixCls}-header-titles-card-title`]: true,
-                  [`${prefixCls}-header-titles-card-title-active`]: activeKey === item.key,
+                  [`${prefixCls}-header-titles-card-title-active`]: activeTab === item.key,
                 })}
                 onTap={() => {
                   handleTabClick(item);
                 }}
               >
-                {item.tab}
+                {item.title}
               </View>
             ))}
           </View>
         ) : null}
         <View className={`${prefixCls}-header-content`}>{headerContent}</View>
       </View>
-      <View className={`${prefixCls}-content`}>{tabContents}</View>
+      <View className={`${prefixCls}-content`}>{children}</View>
     </View>
   );
 };
 
-const TabContent = (props: TabContentProps): React.ReactElement | null => {
-  const { active, children } = props;
+const TabContent: React.FC = (props: TabContentProps): React.ReactElement | null => {
+  const { tabId, activeTab, children } = props;
 
-  if (!active) {
+  if (activeTab !== tabId) {
     return null;
   }
   return <View>{children}</View>;

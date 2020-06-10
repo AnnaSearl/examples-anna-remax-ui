@@ -64,7 +64,7 @@ export default () => {
 
   const [stateKey, setStateKey] = React.useState('0');
   const [stateKey1, setStateKey1] = React.useState('0');
-  const [stateKey2, setStateKey2] = React.useState('0');
+  const [stateKey2, setStateKey2] = React.useState(undefined);
   const [stateKey3, setStateKey3] = React.useState('0');
   const [stateKey4, setStateKey4] = React.useState('0');
 
@@ -74,16 +74,14 @@ export default () => {
         <View className={styles.title}>Basic</View>
         <View className={styles.content}>
           <Tabs
-            tabs={tabs}
             onTabClick={({ key }) => setStateKey(key)}
-            activeTab={stateKey}
+            activeKey={stateKey}
           >
             {
               tabs.map((tab) => (
                 <TabContent 
                   key={tab.key}
-                  tabId={tab.key}
-                  activeTab={stateKey}
+                  tab={tab.title}
                 >
                   <Card>
                     <View className={styles.tabContent}>
@@ -100,17 +98,15 @@ export default () => {
         <View className={styles.title}>TabTitleSquare</View>
         <View className={styles.content}>
           <Tabs
-            tabs={tabs}
             onTabClick={({ key }) => setStateKey1(key)}
-            activeTab={stateKey1}
-            tabTitleSquare
+            activeKey={stateKey1}
+            titleSquare
           >
             {
               tabs1.map((tab) => (
                 <TabContent 
                   key={tab.key}
-                  tabId={tab.key}
-                  activeTab={stateKey1}
+                  tab={tab.title}
                 >
                   <Card>
                     <View className={styles.tabContent}>
@@ -129,17 +125,14 @@ export default () => {
         <View className={styles.content}>
           <Tabs
             type="plain"
-            tabs={tabs2}
             onTabClick={({ key }) => setStateKey2(key)}
-            activeTab={stateKey2}
-            tabTitleSquare
+            activeKey={stateKey2}
           >
             {
               tabs2.map((tab) => (
                 <TabContent 
                   key={tab.key}
-                  tabId={tab.key}
-                  activeTab={stateKey2}
+                  tab={tab.title}
                 >
                   <Card>
                     <View className={styles.tabContent}>
@@ -155,17 +148,14 @@ export default () => {
         <View className={styles.content}>
           <Tabs
             type="card"
-            tabs={tabs3}
             onTabClick={({ key }) => setStateKey3(key)}
-            activeTab={stateKey3}
-            tabTitleSquare
+            activeKey={stateKey3}
           >
             {
               tabs3.map((tab) => (
                 <TabContent 
                   key={tab.key}
-                  tabId={tab.key}
-                  activeTab={stateKey3}
+                  tab={tab.title}
                 >
                   <Card>
                     <View className={styles.tabContent}>
@@ -184,16 +174,14 @@ export default () => {
         <View className={styles.content}>
           <Tabs
             // fixed
-            tabs={tabs4}
             onTabClick={({ key }) => setStateKey4(key)}
-            activeTab={stateKey4}
+            activeKey={stateKey4}
           >
             {
               tabs4.map((tab) => (
                 <TabContent 
                   key={tab.key}
-                  tabId={tab.key}
-                  activeTab={stateKey4}
+                  tab={tab.title}
                 >
                   <Card>
                     <View className={styles.tabContent}>
